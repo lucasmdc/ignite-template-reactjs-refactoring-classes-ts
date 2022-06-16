@@ -16,13 +16,15 @@ interface FoodData {
   image: string;
 }
 
+interface FoodInput extends Omit<FoodData, 'id, available'> { }
+
 const Dashboard = () => {
   const [foods, setFoods] = useState<FoodData[]>([])
   const [editingFood, setEditingFood] = useState<FoodData>({} as FoodData)
   const [modalOpen, setModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
 
-  const handleAddFood = async (food: FoodData) => {
+  const handleAddFood = async (food: FoodInput) => {
     try {
       const response = await api.post('/foods', {
         ...food,
