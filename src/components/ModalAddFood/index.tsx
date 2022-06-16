@@ -6,16 +6,7 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
-interface FoodData {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  available: boolean;
-  image: string;
-}
-
-interface FoodInput extends Omit<FoodData, 'id, available'> { }
+import { FoodInput } from '../../types'
 
 interface ModalAddFoodProps {
   isOpen: boolean;
